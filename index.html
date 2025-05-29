@@ -35,10 +35,9 @@
       z-index: 2;
     }
 
-    /* Container do fogo */
     .fire-container {
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: 0;
       width: 100%;
       height: 50px;
@@ -48,7 +47,6 @@
       filter: drop-shadow(0 0 2px #ff4500);
     }
 
-    /* Chamas */
     .flame {
       position: absolute;
       bottom: 0;
@@ -62,64 +60,17 @@
       transform-origin: bottom center;
     }
 
-    .flame:nth-child(1) {
-      left: 10%;
-      animation-delay: 0s;
-      height: 65px;
-      width: 28px;
-    }
-
-    .flame:nth-child(2) {
-      left: 25%;
-      animation-delay: 0.3s;
-      height: 55px;
-      width: 25px;
-      opacity: 0.8;
-    }
-
-    .flame:nth-child(3) {
-      left: 40%;
-      animation-delay: 0.6s;
-      height: 70px;
-      width: 30px;
-    }
-
-    .flame:nth-child(4) {
-      left: 60%;
-      animation-delay: 0.2s;
-      height: 50px;
-      width: 20px;
-      opacity: 0.75;
-    }
-
-    .flame:nth-child(5) {
-      left: 75%;
-      animation-delay: 0.5s;
-      height: 60px;
-      width: 27px;
-    }
-
-    .flame:nth-child(6) {
-      left: 90%;
-      animation-delay: 0.7s;
-      height: 55px;
-      width: 22px;
-      opacity: 0.85;
-    }
+    .flame:nth-child(1) { left: 10%; animation-delay: 0s; height: 65px; width: 28px; }
+    .flame:nth-child(2) { left: 25%; animation-delay: 0.3s; height: 55px; width: 25px; opacity: 0.8; }
+    .flame:nth-child(3) { left: 40%; animation-delay: 0.6s; height: 70px; width: 30px; }
+    .flame:nth-child(4) { left: 60%; animation-delay: 0.2s; height: 50px; width: 20px; opacity: 0.75; }
+    .flame:nth-child(5) { left: 75%; animation-delay: 0.5s; height: 60px; width: 27px; }
+    .flame:nth-child(6) { left: 90%; animation-delay: 0.7s; height: 55px; width: 22px; opacity: 0.85; }
 
     @keyframes flicker {
-      0% {
-        transform: scaleY(1) translateY(0) rotate(0deg);
-        opacity: 0.9;
-      }
-      50% {
-        transform: scaleY(1.2) translateY(-5px) rotate(3deg);
-        opacity: 1;
-      }
-      100% {
-        transform: scaleY(1) translateY(0) rotate(0deg);
-        opacity: 0.9;
-      }
+      0% { transform: scaleY(1) translateY(0) rotate(0deg); opacity: 0.9; }
+      50% { transform: scaleY(1.2) translateY(-5px) rotate(3deg); opacity: 1; }
+      100% { transform: scaleY(1) translateY(0) rotate(0deg); opacity: 0.9; }
     }
 
     .container {
@@ -157,13 +108,8 @@
       cursor: pointer;
     }
 
-    .img-container:nth-child(1) {
-      animation-delay: 0.3s;
-    }
-
-    .img-container:nth-child(2) {
-      animation-delay: 0.6s;
-    }
+    .img-container:nth-child(1) { animation-delay: 0.3s; }
+    .img-container:nth-child(2) { animation-delay: 0.6s; }
 
     @keyframes fadeInUp {
       to {
@@ -226,18 +172,72 @@
     button:hover {
       background-color: #1ebc5b;
     }
+
+    .sobre {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      background-color: #fff0e0;
+      padding: 40px 20px;
+      flex-wrap: wrap;
+    }
+
+    .sobre-texto {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    .sobre-foto {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      cursor: pointer;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      animation-delay: 0.3s;
+    }
+
+    .sobre-foto img {
+      width: 100%;
+      border-radius: 12px;
+      height: auto;
+      object-fit: cover;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .sobre-foto:hover img {
+      transform: scale(1.05);
+    }
+
+    .sobre-foto span {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 1em;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .sobre-foto:hover span {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="fire-container">
-    <div class="flame"></div>
-    <div class="flame"></div>
-    <div class="flame"></div>
-    <div class="flame"></div>
-    <div class="flame"></div>
-    <div class="flame"></div>
+    <div class="flame"></div><div class="flame"></div><div class="flame"></div>
+    <div class="flame"></div><div class="flame"></div><div class="flame"></div>
   </div>
   <h1>Linguiça Mineira Caseira</h1>
   <p>Sabor que vem da tradição mineira!</p>
@@ -264,6 +264,11 @@
       <option value="3">3kg</option>
       <option value="4">4kg</option>
       <option value="5">5kg</option>
+      <option value="6">6kg</option>
+      <option value="7">7kg</option>
+      <option value="8">8kg</option>
+      <option value="9">9kg</option>
+      <option value="10">10kg</option>
     </select>
     <br/>
     <button onclick="fazerPedido('porco')">Pedir via WhatsApp</button>
@@ -289,11 +294,40 @@
       <option value="3">3kg</option>
       <option value="4">4kg</option>
       <option value="5">5kg</option>
+      <option value="6">6kg</option>
+      <option value="7">7kg</option>
+      <option value="8">8kg</option>
+      <option value="9">9kg</option>
+      <option value="10">10kg</option>
     </select>
     <br/>
     <button onclick="fazerPedido('frango')">Pedir via WhatsApp</button>
   </div>
 </div>
+
+<!-- Seção Elielson -->
+<section class="sobre">
+  <div class="sobre-foto">
+    <img src="elielson.jpg" alt="Elielson Mendes">
+    <span>Elielson Mendes</span>
+  </div>
+  <div class="sobre-texto">
+    <h2>Conheça o Mestre das Linguiças</h2>
+    <p>Este é <strong>Elielson Mendes</strong>, o açougueiro responsável por todo o cuidado e sabor das nossas linguiças.</p>
+    <p>Com paixão pela arte da charcutaria e anos de prática, ele é o coração por trás da tradição mineira que chega até a sua mesa.</p>
+    <p><strong>Confiança, higiene e sabor!</strong></p>
+  </div>
+</section>
+
+<!-- Cabeçalho repetido como rodapé -->
+<header>
+  <div class="fire-container">
+    <div class="flame"></div><div class="flame"></div><div class="flame"></div>
+    <div class="flame"></div><div class="flame"></div><div class="flame"></div>
+  </div>
+  <h1>Linguiça Mineira Caseira</h1>
+  <p>Sabor que vem da tradição mineira!</p>
+</header>
 
 <script>
   function fazerPedido(tipo) {
@@ -308,3 +342,5 @@
 
 </body>
 </html>
+
+
