@@ -176,19 +176,20 @@
     .sobre {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 40px;
       background-color: #fff0e0;
-      padding: 40px 20px;
+      padding: 40px 0 40px 0;
       flex-wrap: wrap;
     }
 
-    /* Foto maior e interativa */
     .sobre .img-container {
-      width: 100%;
       max-width: 500px;
-      position: relative;
-      cursor: pointer;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-left: 0;
+      padding-left: 20px;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 1s ease forwards;
@@ -231,6 +232,8 @@
     .sobre-texto {
       flex: 1 1 300px;
       max-width: 500px;
+      padding-left: 0;
+      padding-right: 20px;
     }
   </style>
 </head>
@@ -307,7 +310,7 @@
   </div>
 </div>
 
-<!-- Seção Elielson com foto maior e nome interativo -->
+<!-- Seção Elielson lateral esquerda -->
 <section class="sobre">
   <div class="img-container">
     <img src="elielson.jpg" alt="Elielson Mendes">
@@ -321,7 +324,7 @@
   </div>
 </section>
 
-<!-- Cabeçalho repetido como rodapé -->
+<!-- Rodapé -->
 <header>
   <div class="fire-container">
     <div class="flame"></div><div class="flame"></div><div class="flame"></div>
