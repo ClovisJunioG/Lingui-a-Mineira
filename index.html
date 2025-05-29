@@ -183,36 +183,32 @@
       flex-wrap: wrap;
     }
 
-    .sobre-texto {
-      flex: 1 1 300px;
-      max-width: 500px;
-    }
-
-    .sobre-foto {
-      position: relative;
+    /* Foto maior e interativa */
+    .sobre .img-container {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px;
+      position: relative;
       cursor: pointer;
-      animation: fadeInUp 1s ease forwards;
       opacity: 0;
       transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
       animation-delay: 0.3s;
     }
 
-    .sobre-foto img {
+    .sobre .img-container img {
       width: 100%;
-      border-radius: 12px;
       height: auto;
+      border-radius: 12px;
       object-fit: cover;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease;
     }
 
-    .sobre-foto:hover img {
+    .sobre .img-container:hover img {
       transform: scale(1.05);
     }
 
-    .sobre-foto span {
+    .sobre .img-container span {
       position: absolute;
       bottom: 15px;
       left: 50%;
@@ -227,8 +223,14 @@
       pointer-events: none;
     }
 
-    .sobre-foto:hover span {
+    .sobre .img-container:hover span {
       opacity: 1;
+      pointer-events: auto;
+    }
+
+    .sobre-texto {
+      flex: 1 1 300px;
+      max-width: 500px;
     }
   </style>
 </head>
@@ -305,9 +307,9 @@
   </div>
 </div>
 
-<!-- Seção Elielson -->
+<!-- Seção Elielson com foto maior e nome interativo -->
 <section class="sobre">
-  <div class="sobre-foto">
+  <div class="img-container">
     <img src="elielson.jpg" alt="Elielson Mendes">
     <span>Elielson Mendes</span>
   </div>
@@ -342,5 +344,3 @@
 
 </body>
 </html>
-
-
