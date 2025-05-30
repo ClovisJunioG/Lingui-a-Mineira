@@ -153,6 +153,19 @@
       pointer-events: auto;
     }
 
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .preco-kg {
+      margin-top: 5px;
+      font-size: 1em;
+      color: #8b0000;
+      font-weight: bold;
+    }
+
     select, button {
       margin-top: 10px;
       padding: 8px;
@@ -167,6 +180,7 @@
       border: none;
       cursor: pointer;
       margin-top: 10px;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -179,15 +193,13 @@
       justify-content: flex-start;
       gap: 40px;
       background-color: #fff0e0;
-      padding: 40px 0 40px 0;
+      padding: 40px 0;
       flex-wrap: wrap;
     }
 
     .sobre .img-container {
       max-width: 500px;
       width: 100%;
-      margin-left: 0;
-      margin-right: 0;
       margin-left: 0;
       padding-left: 20px;
       opacity: 0;
@@ -232,8 +244,85 @@
     .sobre-texto {
       flex: 1 1 300px;
       max-width: 500px;
-      padding-left: 0;
       padding-right: 20px;
+    }
+
+    .depoimentos {
+      background-color: #fff8f0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .depoimentos h2 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+    }
+
+    .comentario {
+      max-width: 600px;
+      margin: 0 auto 20px;
+      font-style: italic;
+      font-size: 1.1em;
+    }
+
+    .comentario span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .whatsapp-fixo {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+    .whatsapp-fixo:hover {
+      background-color: #1ebc5b;
+    }
+
+    .instagram-fixo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #E4405F;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      z-index: 998;
+    }
+
+    .instagram-fixo:hover {
+      background-color: #d73559;
+    }
+
+    footer {
+      background-color: #8b0000;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+
+    footer strong {
+      color: #fff8f0;
     }
   </style>
 </head>
@@ -263,7 +352,7 @@
       </div>
     </div>
     <label for="kgPorco">Quantidade (kg):</label>
-    <select id="kgPorco">
+    <select id="kgPorco" onchange="atualizarPreco('porco')">
       <option value="1">1kg</option>
       <option value="2">2kg</option>
       <option value="3">3kg</option>
@@ -275,7 +364,7 @@
       <option value="9">9kg</option>
       <option value="10">10kg</option>
     </select>
-    <br/>
+    <div class="preco-kg" id="precoPorco">Preço: R$ 28,00/kg</div>
     <button onclick="fazerPedido('porco')">Pedir via WhatsApp</button>
   </div>
 
@@ -293,7 +382,7 @@
       </div>
     </div>
     <label for="kgFrango">Quantidade (kg):</label>
-    <select id="kgFrango">
+    <select id="kgFrango" onchange="atualizarPreco('frango')">
       <option value="1">1kg</option>
       <option value="2">2kg</option>
       <option value="3">3kg</option>
@@ -305,12 +394,12 @@
       <option value="9">9kg</option>
       <option value="10">10kg</option>
     </select>
-    <br/>
+    <div class="preco-kg" id="precoFrango">Preço: R$ 28,00/kg</div>
     <button onclick="fazerPedido('frango')">Pedir via WhatsApp</button>
   </div>
 </div>
 
-<!-- Seção Elielson lateral esquerda -->
+<!-- Seção Elielson -->
 <section class="sobre">
   <div class="img-container">
     <img src="elielson.jpg" alt="Elielson Mendes">
@@ -319,30 +408,67 @@
   <div class="sobre-texto">
     <h2>Conheça o Mestre das Linguiças</h2>
     <p>Este é <strong>Elielson Mendes</strong>, o açougueiro responsável por todo o cuidado e sabor das nossas linguiças.</p>
-    <p>Com paixão pela arte da charcutaria e anos de prática, ele é o coração por trás da tradição mineira que chega até a sua mesa.</p>
-    <p><strong>Confiança, higiene e sabor!</strong></p>
+    <p>Com paixão pelo preparo artesanal de linguiças e anos de prática, ele é o coração por trás do sabor que chega até a sua mesa.</p>
   </div>
 </section>
 
-<!-- Rodapé -->
-<header>
-  <div class="fire-container">
-    <div class="flame"></div><div class="flame"></div><div class="flame"></div>
-    <div class="flame"></div><div class="flame"></div><div class="flame"></div>
-  </div>
-  <h1>Linguiça Mineira Caseira</h1>
-  <p>Sabor que vem da tradição mineira!</p>
-</header>
+<section class="depoimentos">
+  <h2>O que dizem nossos clientes</h2>
+  <div class="comentario">“Deliciosa! A melhor linguiça que já comi. Recomendo a todos!” <span>- Maria S.</span></div>
+  <div class="comentario">“Sabor autêntico e caseiro, vale cada kg comprado.” <span>- João P.</span></div>
+  <div class="comentario">“Entrega rápida e atendimento excelente. Voltarei a comprar com certeza.” <span>- Ana C.</span></div>
+</section>
+
+<a href="https://wa.me/553897280976" class="whatsapp-fixo" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+<a href="https://instagram.com/clovisnow" class="instagram-fixo" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+
+<footer>
+  <p><strong>Linguiça Mineira Caseira</strong></p>
+  <p>Feita com amor e tradição mineira</p>
+  <p>Contato: (38) 9728-0976| Endereço: Rua Jardins Munique, Goiânia - GO</p>
+</footer>
 
 <script>
-  function fazerPedido(tipo) {
-    const numeroWhatsApp = '553897280976';
-    const quantidade = document.getElementById(tipo === 'porco' ? 'kgPorco' : 'kgFrango').value;
-    const produto = tipo === 'porco' ? 'linguiça de porco' : 'linguiça de frango';
-    const mensagem = `Olá, gostaria de pedir ${quantidade}kg de ${produto}!`;
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
+  // Valores por kg para cada tipo de linguiça
+  const precos = {
+    porco: 28.00,
+    frango: 28.00
+  };
+
+  // Atualiza o preço total no botão ou em algum lugar
+  function atualizarPreco(tipo) {
+    const select = document.getElementById('kg' + capitalize(tipo));
+    const precoDiv = document.getElementById('preco' + capitalize(tipo));
+    const quantidade = parseInt(select.value);
+    const precoKg = precos[tipo];
+    const total = quantidade * precoKg;
+
+    precoDiv.textContent = `Preço: R$ ${precoKg.toFixed(2).replace('.', ',')}/kg | Total: R$ ${total.toFixed(2).replace('.', ',')}`;
   }
+
+  function fazerPedido(tipo) {
+    const select = document.getElementById('kg' + capitalize(tipo));
+    const quantidade = select.value;
+    const precoKg = precos[tipo];
+    const total = (quantidade * precoKg).toFixed(2).replace('.', ',');
+    const tipoNome = tipo === 'porco' ? 'Linguiça de Porco' : 'Linguiça de Frango';
+
+    const mensagem = `Olá! Gostaria de fazer um pedido de ${quantidade} kg de ${tipoNome}. Total: R$ ${total}. Por favor, me informe sobre a entrega e pagamento.`;
+    const telefone = '+55 38 9728-0976'; // Troque pelo número correto com código do país
+
+    const urlWhats = `https://wa.me/${553897280976}?text=${encodeURIComponent(mensagem)}`;
+    window.open(urlWhats, '_blank');
+  }
+
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  // Inicializar preços na carga da página
+  window.onload = () => {
+    atualizarPreco('porco');
+    atualizarPreco('frango');
+  };
 </script>
 
 </body>
